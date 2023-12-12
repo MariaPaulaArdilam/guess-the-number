@@ -4,7 +4,7 @@ public class GuessTheNumber {
     }
 
     public static String abcd() {
-        String nombre = "hola mundooooooo";
+        String nombre = "hola mundo";
         return nombre;
     }
 
