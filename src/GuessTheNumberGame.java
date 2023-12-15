@@ -9,8 +9,9 @@ public class GuessTheNumberGame {
         //crear el objeto player basado en la clase humanplayer
         HumanPlayer player1 = new HumanPlayer();
         //System.out.println(player1.getNumber());
-        int differenceNumber = rangeDifference(target_number, player1.getNumber());
-
+        rangeDifference(target_number, player1.getNumber());
+        ComputerPlayer compuPlayer = new ComputerPlayer();
+        rangeDifference(target_number, compuPlayer.getCompuNumber());
     }
 
     public static int genereRandomNumber() {
