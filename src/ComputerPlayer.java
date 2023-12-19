@@ -18,4 +18,8 @@ public class ComputerPlayer extends Player{
         setCompuNumber(randomNumberFinal);
         System.out.println("Computer Player, enter your guess: " + getCompuNumber());
     }
+    @Override
+    int makeGuess(){
+        return 0;
+    }
 }

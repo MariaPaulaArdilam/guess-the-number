@@ -7,16 +7,9 @@ public class GuessTheNumberGame {
         int target_number = genereRandomNumber();
         System.out.println(target_number);
         //objeto
-        HumanPlayer player1 = new HumanPlayer();
+        HumanPlayer player = new HumanPlayer();
         ComputerPlayer compuPlayer = new ComputerPlayer();
-        rangeDifference(target_number, player1.getNumber());
-        rangeDifference(target_number, compuPlayer.getCompuNumber());
-        while (target_number != player1.getNumber()) {
-            //new HumanPlayer();
-            //new ComputerPlayer();
-        } if(target_number == player1.getNumber()){
-            System.out.println("¡finish!");
-        }
+
     }
 
     public static int genereRandomNumber() {
@@ -27,8 +20,8 @@ public class GuessTheNumberGame {
 
     //metodo checkGuess(Player player)
 
-    public static int rangeDifference(int targetNumber, int playerNumber) {
-        int difference = Math.abs(targetNumber - playerNumber);
+    public static int rangeDifference(int targetNumber, int makeGuess) {
+        int difference = Math.abs(targetNumber - makeGuess);
 
         if (difference <= 5) {
             System.out.println("to close.");
