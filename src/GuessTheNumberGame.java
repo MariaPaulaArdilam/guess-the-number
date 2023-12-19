@@ -3,23 +3,29 @@ import java.util.Random;
 public class GuessTheNumberGame {
 
     public static void main (String[] args) {
-        //Atributo que se llama target_number con tipo de dato int(entero)
+        //Atributo
         int target_number = genereRandomNumber();
         System.out.println(target_number);
-        //crear el objeto player basado en la clase humanplayer
+        //objeto
         HumanPlayer player1 = new HumanPlayer();
-        //System.out.println(player1.getNumber());
-        rangeDifference(target_number, player1.getNumber());
         ComputerPlayer compuPlayer = new ComputerPlayer();
+        rangeDifference(target_number, player1.getNumber());
         rangeDifference(target_number, compuPlayer.getCompuNumber());
+        while (target_number != player1.getNumber()) {
+            //new HumanPlayer();
+            //new ComputerPlayer();
+        } if(target_number == player1.getNumber()){
+            System.out.println("¡finish!");
+        }
     }
 
     public static int genereRandomNumber() {
-        // funcion que retorna un numero aleatoreo entero
         Random random_number = new Random();
         int final_random_number = random_number.nextInt(100)+1;
         return final_random_number;
     }
+
+    //metodo checkGuess(Player player)
 
     public static int rangeDifference(int targetNumber, int playerNumber) {
         int difference = Math.abs(targetNumber - playerNumber);
@@ -33,5 +39,7 @@ public class GuessTheNumberGame {
         }
         return difference;
     }
+
+
 
 }
