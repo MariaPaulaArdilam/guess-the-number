@@ -4,25 +4,23 @@ public class HumanPlayer extends Player {
 
     //constructor
     public HumanPlayer (){
-        captureName();
-        System.out.println("--- Round: " + getName() + " ---");
-        makeGuess();
-
+       super();
     }
 
     public void captureName() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Ingresa un nombre:");
+        System.out.println("Enter your name:");
         String playerName = scanner.nextLine();
         setName(playerName);
     }
 
     @Override
-    int makeGuess() {
+    int makeGuess(Player player ) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter you guess : " );
         int playerNumber = scanner.nextInt();
-        setGuesses(playerNumber);
+        player.setGuesses(playerNumber);
         return playerNumber;
     }
+
 }

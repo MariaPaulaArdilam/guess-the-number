@@ -1,8 +1,12 @@
-import java.util.Scanner;
+import java.util.ArrayList;
 
 abstract class Player {
     String name;
-    int[] guesses;
+    ArrayList<Integer> guesses;
+
+    public Player() {
+        this.guesses = new ArrayList<>();
+    }
 
     public String getName() {
         return name;
@@ -12,12 +16,13 @@ abstract class Player {
         this.name = name;
     }
 
-    public int[] getGuesses() {
+    public ArrayList<Integer> getGuesses() {
         return guesses;
     }
 
     public void setGuesses(int number) {
-        this.guesses = guesses;
+        this.guesses.add(number);
     }
-    abstract int makeGuess();
+
+    abstract int makeGuess(Player player);
 }

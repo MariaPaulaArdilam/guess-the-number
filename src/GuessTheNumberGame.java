@@ -8,8 +8,13 @@ public class GuessTheNumberGame {
         System.out.println(target_number);
         //objeto
         HumanPlayer player = new HumanPlayer();
+        player.captureName();
+        System.out.println("--- Round: " + player.getName() + " ---");
+        player.makeGuess(player);
+        System.out.println(" ");
         ComputerPlayer compuPlayer = new ComputerPlayer();
-
+        System.out.println("--- Round: Computer Player ---");
+        System.out.println("Enter your guess: " + compuPlayer.makeGuess(compuPlayer));
     }
 
     public static int genereRandomNumber() {
