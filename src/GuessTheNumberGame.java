@@ -4,40 +4,63 @@ public class GuessTheNumberGame {
 
     public static void main (String[] args) {
         //Atributo
-        int target_number = genereRandomNumber();
-        System.out.println(target_number);
+        int targetNumber = genereRandomNumber();
+        System.out.println(targetNumber);
         //objeto
         HumanPlayer player = new HumanPlayer();
         player.captureName();
-        System.out.println("--- Round: " + player.getName() + " ---");
-        player.makeGuess(player);
-        System.out.println(" ");
         ComputerPlayer compuPlayer = new ComputerPlayer();
-        System.out.println("--- Round: Computer Player ---");
-        System.out.println("Enter your guess: " + compuPlayer.makeGuess(compuPlayer));
+        checkGuess(player, compuPlayer, targetNumber);
+
     }
 
     public static int genereRandomNumber() {
-        Random random_number = new Random();
-        int final_random_number = random_number.nextInt(100)+1;
-        return final_random_number;
+        Random randomNumber = new Random();
+        return randomNumber.nextInt(100)+1;
     }
 
     //metodo checkGuess(Player player)
 
-    public static int rangeDifference(int targetNumber, int makeGuess) {
+    public static boolean rangeDifference(int targetNumber, int makeGuess, HumanPlayer player, ComputerPlayer compu) {
+        boolean guessed;
         int difference = Math.abs(targetNumber - makeGuess);
 
-        if (difference <= 5) {
+        if (targetNumber == makeGuess) {
+            System.out.print("Guessed!! ");
+            if (player != null) {
+                System.out.println(player.getGuesses());
+            } else if (compu != null) {
+                System.out.println(compu.getGuesses());
+            }
+            guessed = true;
+        }
+        else if (difference <= 5) {
             System.out.println("to close.");
+            guessed = false;
         } else if (difference <= 10) {
             System.out.println("Close.");
+            guessed = false;
         } else {
             System.out.println("Far away.");
+            guessed = false;
         }
-        return difference;
+
+        return guessed;
     }
 
-
-
+    public static void checkGuess(HumanPlayer player, ComputerPlayer compuPlayer, int target_number) {
+        while (true) {
+            int humanPlayerNumber = player.makeGuess(player);
+            boolean answerDifferenceHuman = rangeDifference(humanPlayerNumber, target_number, player, null);
+            if (answerDifferenceHuman) {
+                break;
+            } else {
+                int compuPlayerNumber = compuPlayer.makeGuess(compuPlayer);
+                boolean answerDifferenceCompu = rangeDifference(compuPlayerNumber, target_number,null, compuPlayer);
+                if (answerDifferenceCompu) {
+                    break;
+                }
+            }
+        }
+    }
 }
