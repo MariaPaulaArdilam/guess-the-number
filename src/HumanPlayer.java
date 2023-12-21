@@ -17,6 +17,7 @@ public class HumanPlayer extends Player {
     @Override
     int makeGuess(Player player ) {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("--- Round: " + player.getName() + " ---");
         System.out.print("Enter you guess : " );
         int playerNumber = scanner.nextInt();
         player.setGuesses(playerNumber);
