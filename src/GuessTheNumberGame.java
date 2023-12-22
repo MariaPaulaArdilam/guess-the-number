@@ -19,18 +19,20 @@ public class GuessTheNumberGame {
         return randomNumber.nextInt(100)+1;
     }
 
-    //metodo checkGuess(Player player)
 
     public static boolean rangeDifference(int targetNumber, int makeGuess, HumanPlayer player, ComputerPlayer compu) {
         boolean guessed;
         int difference = Math.abs(targetNumber - makeGuess);
 
         if (targetNumber == makeGuess) {
-            System.out.print("Guessed!! ");
             if (player != null) {
-                System.out.println(player.getGuesses());
+                System.out.println("Congratulations, " + player.getName() + " You guessed the number.");
+                System.out.println("Attempts: " + player.getGuesses());
+                System.out.println("Total attempts: " + player.getGuesses().size());
             } else if (compu != null) {
-                System.out.println(compu.getGuesses());
+                System.out.println("Congratulations, " + compu.getName() + " You guessed the number.");
+                System.out.println("Attempts: " + compu.getGuesses());
+                System.out.println("Total attempts: " + compu.getGuesses().size());
             }
             guessed = true;
         }
